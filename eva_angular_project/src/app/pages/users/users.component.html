@@ -1,0 +1,34 @@
+<div class=" table-responsive mt-5 ">
+
+    <table class="table table-striped custom-table">
+      <thead style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+              letter-spacing: normal;
+              margin: 0 0 16px;">
+        <tr style="font: 400 24px/32px Roboto,Helvetica Neue, sans-serif;
+                letter-spacing: normal;
+                margin: 0 0 16px;">
+
+          <th scope="col">id</th>
+          <th scope="col">User email</th>
+          <th scope="col">User name</th>
+
+          <!-- <th>
+                        <div class="ml-4"> <button type="button" class="btn btn-secondary " 
+                          >Create New Question bank</button></div></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of UsersList">
+          <td>
+            {{user.id}}
+          </td>
+          <td>
+            {{user.email}}
+          </td>
+          <td>
+            {{user.name}} 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

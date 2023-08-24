@@ -1,0 +1,30 @@
+<div class="container">
+<div class="my-5 border-0">
+  <div class="row m-5" *ngFor="let product of ProductList">
+      <div class="col-12 col-md-4">
+          <a href="#">
+              <img [src]="product.image" class="img-fluid" style="width: 350px; height: 200px;" alt="placeholder">
+          </a>
+          <br>
+          <br>
+      </div>
+      <div class="col-12 col-md-8 d-flex flex-column justify-content-center">
+          <a href="#"><h4>{{product.title}} – <span class="text-primary">{{product.price}}€ </span></h4></a>
+          <p class="text-muted small">Category : {{product.category}}</p>
+          <p class="short-desc text-justify">
+              {{product.description}}
+              <span class="text-muted">[...]</span>
+          </p>
+          <!-- <div class="seller">
+              <a href="#" class="d-inline d-flex flex-row align-items-center">
+                  <img src="http://via.placeholder.com/30" class="img-fluid rounded-circle">
+                  <p class="m-0 p-0 ml-2">Jane Doe <span class="text-muted small">- 4.8/5 (364 votes)</span>
+                  </p>
+              </a>
+          </div> -->
+      </div>
+      <br>
+      <br>
+  </div>
+</div>
+</div>

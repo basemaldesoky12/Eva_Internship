@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e7e4e4; " *ngIf="nav.visible">
+    <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-center" [ngClass]="{'show': !isNavbarCollapsed}">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="posts">Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/auth/signup">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/auth/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()" >Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

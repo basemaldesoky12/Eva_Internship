@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { IProduct } from '../shared-classes-types/IProduct';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
-  private productsUrl = 'assets/Data/products.json';
+  private productsUrl = 'https://fakestoreapi.com/products?limit=6';
 
   constructor(private http: HttpClient) {}
-  getAllProducts(): Observable<any> {
-    return this.http.get(this.productsUrl);
+  getAllProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this.productsUrl);
 }
 
 getProductById(prdId: number): Observable<any> {

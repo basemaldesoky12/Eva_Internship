@@ -1,0 +1,49 @@
+<div class="row p-2">
+
+    <div class="col-md-4 mt-2 p-2" *ngFor="let post of PostsList | paginate : { itemsPerPage: itemsPerPage, currentPage: p }">
+        <div class="d-flex justify-content-center align-items-center">
+
+            <div class="card w-50">
+                <div class="card-body">
+                    <div class="card-img-actions">
+
+                     <h6> Comment {{post.id}}</h6>
+
+                    </div>
+                </div>
+
+                <div class="card-body bg-light text-center">
+                    <div class="mb-2">
+                        <h6 class="font-weight-semibold mb-2">
+                            <p class="text-default mb-2">{{post.title}}</p>
+                        </h6>
+                        <h6 class="font-weight-semibold mb-2">
+                            <p class="text-default mb-2">{{post.body}}</p>
+                        </h6>
+
+                        <!-- <a href="#" class="text-muted" data-abc="true">{{product.category}}</a> -->
+                    </div>
+
+                    <!-- <h3 class="mb-0 font-weight-semibold">{{product.price}} $</h3> -->
+
+                    <!-- <div>
+                        <i class="fa fa-star star"></i>
+                        <i class="fa fa-star star"></i>
+                        <i class="fa fa-star star"></i>
+                        <i class="fa fa-star star"></i>
+                    </div> -->
+
+                    <!-- <div class="text-muted mb-3">{{product.rating.count}}</div> -->
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-primary" (click)="navigateToComments(post.id)"> Show Comments</button>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <pagination-controls class="mt-8 py-5 d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
+</div>
