@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e7e4e4; " *ngIf="nav.visible">
     <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" routerLink="">Eva Project</a>
         <button class="navbar-toggler" (click)="toggleNavbar()">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,7 +25,7 @@
                     <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/auth/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()" >Logout</a>
+                    <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()" style="cursor: pointer;">Logout</a>
                 </li>
             </ul>
         </div>

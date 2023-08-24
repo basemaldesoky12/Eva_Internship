@@ -11,6 +11,7 @@ import { NavbarService } from 'src/app/services/navbar.service';
 })
 export class SignUpComponent implements OnInit {
   signupForm! : FormGroup
+  errorMessage: string = '';
  constructor(private afAuth : AngularFireAuth, 
   private fb :FormBuilder, 
   private route : Router,
@@ -35,6 +36,8 @@ signUp(){
         .catch(error => {
             // Handle registration error
         });
+}else{
+  this.errorMessage="Invalid email or password. Please try again."
 }
 }
 }

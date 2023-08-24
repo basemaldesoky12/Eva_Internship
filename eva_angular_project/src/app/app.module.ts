@@ -6,15 +6,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ProductsComponent } from './pages/products/products.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BehaviourComponent1Component } from './behaviour-component1/behaviour-component1.component';
 import { BehaviourComponent2Component } from './behaviour-component2/behaviour-component2.component';
 import { FormsModule } from '@angular/forms';
 import { ViewComponent } from './layout/view/view.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
-
 import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from './enviroments/enviroment';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 // import { firebaseConfig } from './enviroments/enviroment';
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { environment } from './enviroments/enviroment';
     BehaviourComponent1Component,
     BehaviourComponent2Component,
     ViewComponent,
+    SpinnerComponent,
     // WelcomeComponent
   ],
   imports: [
@@ -34,7 +36,13 @@ import { environment } from './enviroments/enviroment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
